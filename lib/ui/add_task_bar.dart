@@ -16,7 +16,7 @@ class AddTaskPage extends StatefulWidget {
 }
 
 class _AddTaskPageState extends State<AddTaskPage> {
-  final TaskController _taslController = Get.put(TaskController());
+  final TaskController _taskController = Get.put(TaskController());
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _noteController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
@@ -188,7 +188,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _addTaskToDb() async {
-    int value = await _taslController.addTask(
+    int value = await _taskController.addTask(
       task: Task(
         note: _noteController.text,
         title: _titleController.text,
@@ -199,9 +199,9 @@ class _AddTaskPageState extends State<AddTaskPage> {
         repeat: _selectedRepeat,
         color: _selectedColor,
         isCompleted: 0,
-      ),
+      )
     );
-    print("My id is"+ "$value");
+    print("My id is "+"$value");
   }
 
   _colorPallete() {
@@ -262,7 +262,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
       ),
       actions: const [
         CircleAvatar(
-          backgroundImage: AssetImage("images/person.png"),
+          backgroundImage: AssetImage(""),
         ),
         SizedBox(
           width: 20,
