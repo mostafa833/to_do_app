@@ -260,14 +260,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
         child: Icon(Icons.arrow_back_ios_new_rounded,
             size: 27, color: Get.isDarkMode ? Colors.white : Colors.black),
       ),
-      actions: const [
-        CircleAvatar(
-          backgroundImage: AssetImage(""),
-        ),
-        SizedBox(
-          width: 20,
-        ),
-      ],
     );
   }
 
