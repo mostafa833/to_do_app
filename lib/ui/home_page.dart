@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.only(top: 4),
         height: task.isCompleted == 1
             ? MediaQuery.of(context).size.height * 0.24
-            : MediaQuery.of(context).size.height * 0.25,
+            : MediaQuery.of(context).size.height * 0.30,
         color: Get.isDarkMode ? Colors.black : Colors.white,
         child: Column(
           children: [
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                 isClose: true,
                 context: context),
             SizedBox(
-              height: 10,
+              height: 40,
             )
           ],
         ),
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                       ? Colors.white
                       : Colors.black
                   : clr),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
           color: isClose == true
               ? Get.isDarkMode
                   ? Colors.black

@@ -20,7 +20,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _noteController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
-  String _endTime = "9:30 PM";
+  String _endTime = "Enter end time";
   String _startTime = DateFormat("hh:mm a").format(DateTime.now()).toString();
   int _selectedRemind = 5;
   List<int> remindList = [5, 10, 15, 20];
@@ -56,6 +56,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   title: "Date",
                   hint: DateFormat.yMd().format(_selectedDate),
                   widget: IconButton(
+                    iconSize: 24,
                     icon: Icon(Icons.calendar_today_outlined),
                     onPressed: () {
                       _getDateFromUser();
@@ -69,6 +70,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                         title: "Start time",
                         hint: _startTime,
                         widget: IconButton(
+                          iconSize: 24,
                           onPressed: () {
                             _getTimeFromUser(isStartTime: true);
                           },
@@ -79,12 +81,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 15),
+                    SizedBox(width: 8),
                     Expanded(
                       child: MyInputField(
                         title: "End time",
                         hint: _endTime,
                         widget: IconButton(
+                          iconSize: 24,
                           onPressed: () {
                             _getTimeFromUser(isStartTime: false);
                           },
@@ -157,7 +160,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,11 +177,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _validateDate() {
-    if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
+    if (_titleController.text.isNotEmpty) {
       _addTaskToDb();
       Get.back();
-    } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
-      Get.snackbar("Required", "All fields are required !",
+    } else if (_titleController.text.isEmpty) {
+      Get.snackbar("Required", "Title field is required !",
           snackPosition: SnackPosition.TOP,
           backgroundColor: Get.isDarkMode ? Colors.white : Colors.black,
           colorText: Get.isDarkMode ? Colors.black : Colors.white,

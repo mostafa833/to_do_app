@@ -20,7 +20,7 @@ class TaskTile extends StatelessWidget {
         padding: EdgeInsets.all(16),
         //  width: SizeConfig.screenWidth * 0.78,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(15),
           color: _getBGClr(task?.color??0),
         ),
         child: Row(children: [
@@ -75,7 +75,7 @@ class TaskTile extends StatelessWidget {
             color: Colors.grey[200]!.withOpacity(0.7),
           ),
           RotatedBox(
-            quarterTurns: 3,
+            quarterTurns: 4,
             child: Text(
               task!.isCompleted == 1 ? "COMPLETED" : "TODO",
               style: GoogleFonts.lato(
